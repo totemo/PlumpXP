@@ -6,6 +6,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.entity.Projectile;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityDeathEvent;
@@ -35,9 +36,14 @@ public class PlumpXPListener implements Listener {
          handleMonsterDeath(event, xp);
         }
 
+    public void onBlockBreak(BlockBreakEvent event) {
+    	int xp = event.getExpToDrop();
+
+    	handleBlockBreak((BlockBreakEvent) event, xp);
+    }
+
     private void handleMonsterDeath(EntityDeathEvent event, int exp) {
         EntityType target = event.getEntityType();
-        int temp = exp;
         if ((target == EntityType.BLAZE) && (plugin.config.BLAZE_MULTIPLIER > 0)) {
             exp *= plugin.config.BLAZE_MULTIPLIER;
         }
@@ -75,5 +81,12 @@ public class PlumpXPListener implements Listener {
             p = (Player)damager;
         }
         return p;
+    }
+    
+    private void handleBlockBreak(BlockBreakEvent event, int exp) {
+    	if (plugin.config.ORE_MULTIPLIER > 0) {
+    		exp *= plugin.config.ORE_MULTIPLIER;
+    	}
+    	event.setExpToDrop(exp);
     }
 }

@@ -12,6 +12,8 @@ public class PlumpXP extends JavaPlugin {
 		private final PlumpXPListener xplistener = new PlumpXPListener(this);
 		Logger log = Logger.getLogger("Minecraft");
 		public final Configuration config = new Configuration(this);
+
+
 		public void onEnable(){
 			log = this.getLogger();
 			

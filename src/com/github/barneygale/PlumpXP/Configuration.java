@@ -6,6 +6,7 @@ public class Configuration {
 	public double BLAZE_MULTIPLIER;
 	public boolean PLAYER_OVERRIDE;
 	public double PLAYER_MULTIPLIER;
+	public double ORE_MULTIPLIER;
 	
 	public Configuration(PlumpXP instance) {
 		plugin = instance;
@@ -19,6 +20,7 @@ public class Configuration {
 		BLAZE_MULTIPLIER = plugin.getConfig().getDouble("blaze-multiplier");
 		PLAYER_OVERRIDE = plugin.getConfig().getBoolean("player-override");
 		PLAYER_MULTIPLIER = plugin.getConfig().getDouble("player-multiplier");
+		ORE_MULTIPLIER = plugin.getConfig().getDouble("ore-multiplier");
 	}
 
 }
