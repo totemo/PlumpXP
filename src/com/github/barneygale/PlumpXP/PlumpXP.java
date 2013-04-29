@@ -38,6 +38,7 @@ public class PlumpXP extends JavaPlugin {
 		public boolean onCommand(CommandSender sender, Command command, String name, String[] args) {
 	        if (command.getName().equalsIgnoreCase("reloadplumpxp")) {
 	            config.load();
+		    sender.sendMessage("PlumpXP configuration reloaded.");
 	            return true;
 	        }
 	        return false;

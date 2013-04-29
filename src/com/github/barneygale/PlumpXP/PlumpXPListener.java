@@ -36,6 +36,7 @@ public class PlumpXPListener implements Listener {
          handleMonsterDeath(event, xp);
         }
 
+    @EventHandler
     public void onBlockBreak(BlockBreakEvent event) {
     	int xp = event.getExpToDrop();
 
